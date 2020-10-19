@@ -1,48 +1,51 @@
+
+<button type="submit" class="btn btn-primary" name= "add"><a href="insert.php">AddNew</a></button>
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Thien An</title>
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <a href="insert.php" class="text-decoration-none">
-        <h3 class="text-success p-3 ">AddNew</h3>
-    </a>
+    <!--<a href="/mywebsite/insert.php">AddNew</a>-->
     <div>
-        <table class="table">
+    <div class="container">
+    <table class="table">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">#</th>
-                    <th scope="col" class="text-center">Name </th>
-                    <th scope="col" class="text-center">Price</th>
-                    <th scope="col" class="text-center">Image</th>
-                    <th scope="col" class="text-center">Details</th>
-                    <th scope="col" class="text-center">Action</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Image </th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <?php
             include('productCRUD.php');
+
             $obj = new ProductCRUD();
             $list = $obj->readProduct();
             foreach ($list as $item) {
             ?>
                 <tbody>
                     <tr>
-                        <td class="text-center"><?php echo $item["code"] ?> </td>
-                        <td class="text-center"><?php echo $item["name"] ?> </td>
-                        <td class="text-center"><?php echo $item["price"] ?> </td>
-                        <td class="text-center"><img src="assets\<?= $item["img"] ?> " width="241" height="135" /></td>
-                        <td class="text-center"><?php echo $item["details"] ?> </td>
-                        <td class="text-center"><a href="#"><button type="button" class="btn btn-secondary">Update</button></a> &nbsp; | &nbsp; <a href="#"><button type="button" class="btn btn-danger">Delete</button></a> </td>
-                        <td class="text-center"><a href="delete.php" onclick="return confirm('Delete ?');"><button type="button" class="btn btn-secondary">Delete</button></a> &nbsp; | &nbsp; <a href="#"><button type="button" class="btn btn-danger">Delete</button></a> </td>
+                        <?php foreach ($item as $key => $value) { ?>
+                            <td><?php echo $value ?> </td> <?php } ?>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-success">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             <?php } ?>
-        </table>
+        
+  </table>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
