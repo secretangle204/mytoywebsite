@@ -17,11 +17,11 @@ class ProductCRUD
                 $this->msg = "Fail";
                 return $data;
             }
-            $query = 'SELECT code, name, price, img, details
+            $query = 'SELECT code, image, price, name, details
 	                        FROM public.products;';
             $result = pg_query($conn, $query);
             while ($row = pg_fetch_row($result)) {
-                array_push($data, array("code" => $row[0], "name" => $row[1], "price" => $row[2], "img" => $row[3], "details" => $row[4]));
+                array_push($data, array("code" => $row[0], "image" => $row[1], "name" => $row[2], "price" => $row[3], "details" => $row[4]));
             }
             pg_close($conn);
         } catch (Exception $e) {
@@ -41,8 +41,8 @@ class ProductCRUD
                 $this->msg = "Fail";
                 return $data;
             }
-            $query = 'INSERT INTO products VALUES ($code, $name, $price, $image, $details) returning code ';
-            $params = array(&$code, &$name, &$price, &$image, &$details);
+            $query = 'INSERT INTO products VALUES ($code, $image, $price, $name, $details) returning code ';
+            $params = array(&$code, &$image, &$price, &$name, &$details);
             $res = pg_query_params($conn, $query, $params);
             $row =  pg_fetch_row($res);
             $success = $row[0];
@@ -52,6 +52,7 @@ class ProductCRUD
             $success = -1;
         }
     }
+
     public function deleteProduct($code){
         $success = -1;
         try {
