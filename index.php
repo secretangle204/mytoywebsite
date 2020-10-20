@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <a href="/mywebsite/insert.php">AddNew</a>
+    <!--<a href="/mywebsite/insert.php">AddNew</a>-->
     <div>
     <div class="container">
     <table class="table">
