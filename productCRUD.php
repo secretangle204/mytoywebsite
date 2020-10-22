@@ -54,7 +54,8 @@ class productCRUD
             $success = -1;
         }
     }
-    public function deleteProduct($code){
+    public function deleteProduct($code)
+    {
         $success = -1;
         try {
             global $connString;
@@ -63,8 +64,8 @@ class productCRUD
                 $this->msg = "Fail";
                 return $success;
             }
-            $query = "DELETE FROM products WHERE code=1";
-            $params = array(&$code);
+            $query = "DELETE FROM public.products WHERE code=$code";
+            $params = array(&$code, &$name, &$price, &$image, &$details);
             $res = pg_query_params($conn, $query, $params);
             if ($res === false) {
                 $this->msg = "Error query";
@@ -80,6 +81,3 @@ class productCRUD
         }
     }
 }
-
-
-
