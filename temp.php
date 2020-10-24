@@ -8,46 +8,64 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-.w3-sidebar a {font-family: "Roboto", sans-serif}
-body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+.w3-sidebar a {
+    font-family: "Roboto", sans-serif
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.w3-wide {
+    font-family: "Montserrat", sans-serif;
+}
 </style>
+
 <body class="w3-content" style="max-width:1200px">
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
-    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>Toy List</b></h3>
-  </div>
-  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="#" class="w3-bar-item w3-button">Active toys</a>
-    <a href="#" class="w3-bar-item w3-button">Brain Teaser</a>
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      General toys </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-      <a href="#" class="w3-bar-item w3-button">Transport</a>
-      <a href="#" class="w3-bar-item w3-button">Accessories</a>
-      <a href="#" class="w3-bar-item w3-button">Utensils</a>
-    </div>
-    <a href="#" class="w3-bar-item w3-button">Figure</a>
-    <a href="#" class="w3-bar-item w3-button">Theme</a>
-    <a href="#" class="w3-bar-item w3-button">Origami</a>
-    <a href="#" class="w3-bar-item w3-button">Doll</a>
-  </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
-</nav>
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+        <div class="w3-container w3-display-container w3-padding-16">
+            <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+            <h3 class="w3-wide"><b>Toy List</b></h3>
+        </div>
+        <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+            <a href="#" class="w3-bar-item w3-button">Active toys</a>
+            <a href="#" class="w3-bar-item w3-button">Brain Teaser</a>
+            <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align"
+                id="myBtn">
+                General toys </a>
+            <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+                <a href="#" class="w3-bar-item w3-button w3-light-grey"><i
+                        class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
+                <a href="#" class="w3-bar-item w3-button">Transport</a>
+                <a href="#" class="w3-bar-item w3-button">Accessories</a>
+                <a href="#" class="w3-bar-item w3-button">Utensils</a>
+            </div>
+            <a href="#" class="w3-bar-item w3-button">Figure</a>
+            <a href="#" class="w3-bar-item w3-button">Theme</a>
+            <a href="#" class="w3-bar-item w3-button">Origami</a>
+            <a href="#" class="w3-bar-item w3-button">Doll</a>
+        </div>
+        <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"
+            onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
+        <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
+    </nav>
 
     <!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-</header>
+    <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+        <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i
+                class="fa fa-bars"></i></a>
+    </header>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+        id="myOverlay"></div>
 
 
     <!-- !PAGE CONTENT! -->
@@ -59,85 +77,28 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
             foreach ($list as $item) {
             ?>
 
- <!-- Push down content on small screens -->
- <div class="w3-hide-large" style="margin-top:83px"></div>
+        <!-- Push down content on small screens -->
+        <div class="w3-hide-large" style="margin-top:83px"></div>
 
-  <!-- Product grid -->
-  <div class="w3-row w3-grayscale">
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-      <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-      <div class="w3-container">
-      <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <div class="w3-display-middle w3-display-hover">
-          </div>
+        <!-- Product grid -->
+        <div class="  w3-grayscale">
+            <div class="w3-col l3 s6">
+                <div class="w3-container">
+                    <img src="img\<?= $item["image"] ?>" style="width:100%">
+                    <h3><?php echo $item["name"] ?></h3>
+                    <p><?php echo $item["price"] ?></p>
+                    <p><?php echo $item["details"] ?></p>
+                </div>
+                
+            </div>
+            
         </div>
-        <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-      <div class="w3-container">
-      <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-      <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-      <div class="w3-container">
-        <div class="w3-display-container">
-          <div class="w3-display-middle w3-display-hover">
-          </div>
-        </div>
-        <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-      <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-      <div class="w3-container">
-      <img src="img\<?= $item["image"] ?>" style="width:100%">
-                <h3><?php echo $item["name"] ?></h3>
-                <p><?php echo $item["price"] ?></p>
-                <p><?php echo $item["details"] ?></p>
-      </div>
-    </div>
-  </div>
-
-  
 
 
-    <?php } ?>
-    <hr>
+
+
+        <?php } ?>
+        <hr>
 
 
 

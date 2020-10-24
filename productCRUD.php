@@ -17,8 +17,8 @@ class productCRUD
                 $this->msg = "Fail";
                 return $data;
             }
-            $query = 'SELECT code, name, price, image, details
-	                        FROM public.products;';
+            $query = 'SELECT code, name, price, image, details 
+            FROM public.products;';
             $result = pg_query($conn, $query);
             while ($row = pg_fetch_row($result)) {
                 array_push($data, array("code" => $row[0], "name" => $row[1], "price" => $row[2], "image" => $row[3], "details" => $row[4]));
@@ -54,8 +54,7 @@ class productCRUD
             $success = -1;
         }
     }
-    public function deleteProduct($code)
-    {
+    public function deleteProduct($code = FALSE){
         $success = -1;
         try {
             global $connString;
@@ -64,20 +63,49 @@ class productCRUD
                 $this->msg = "Fail";
                 return $success;
             }
-            $query = "DELETE FROM public.products WHERE code=$code";
-            $params = array(&$code, &$name, &$price, &$image, &$details);
+            $query = "DELETE FROM public.products WHERE code=$1";
+            $params = array(&$code);
             $res = pg_query_params($conn, $query, $params);
+            $row =  pg_affected_rows($res);
+            $success = $row[1];
+            $this->msg = "";
+            pg_close($conn);
             if ($res === false) {
                 $this->msg = "Error query";
                 return $success;
             }
-            $row =  pg_affected_rows($res);
-            $success = $row;
-            $this->msg = "";
-            pg_close($conn);
+           
         } catch (Exception $e) {
             $this->msg = $e->getMessage();
             $success =-1;
         }
     }
+
+    public function updateProduct($code, $name, $price, $image, $details){
+        $success = -1;
+        try { 
+            global $connString;
+            $conn = pg_connect($connString);
+            if ($conn === false) {
+                $this->msg = "Fail";
+                return $success;
+            }
+            $query = 'UPDATE public.products SET name = $2, price = $3, image = $4, details = $5 WHERE code= $1';
+            $params = array(&$code, &$name, &$price, &$image, &$details);
+            $res = pg_query_params($conn,$query,$params);
+            $num_rows = pg_affected_rows($res);
+            $success = $num_rows;
+            $this->msg = "";
+            pg_close($conn);
+            if ($res === false) {
+                $this->msg = "Error query";
+                return $success;
+            }
+        }catch (Exception $e){
+                $this->msg = $e->getMessage();
+                $success = -1;
+        }
+        return $success;
+        }
+
 }
