@@ -30,7 +30,6 @@ class productCRUD
         }
         return $data;
     }
-    
     public function createProduct($code, $name, $price, $image, $details)
     {
         $data = array();
